@@ -1,0 +1,24 @@
+.button__area {
+  width: 250px;
+  margin: auto;
+}
+.button__list {
+  padding: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.button__btn {
+  cursor: pointer;
+  background: none;
+  border: solid 0.5px grey;
+}
+
+.button__btn:hover {
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.button__btn:active {
+  transform: scale(1.1);
+}
