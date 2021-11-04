@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Section from "./components/Section/Section";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Statistics from "./components/Statistics/Statistics";
+import Notification from "./components/Notification/Notification";
 
 class App extends Component {
   state = {
@@ -54,18 +55,24 @@ class App extends Component {
           }
         />
 
-        <Section
-          title="Statistics"
-          children={
-            <Statistics
-              good_value={this.state.good_value}
-              neutral_value={this.state.neutral_value}
-              bad_value={this.state.bad_value}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          }
-        />
+        {this.state.good_value === 0 &&
+        this.state.neutral_value === 0 &&
+        this.state.bad_value === 0 ? (
+          <Section title="Statistics" children={<Notification />} />
+        ) : (
+          <Section
+            title="Statistics"
+            children={
+              <Statistics
+                good_value={this.state.good_value}
+                neutral_value={this.state.neutral_value}
+                bad_value={this.state.bad_value}
+                total={this.countTotalFeedback()}
+                positivePercentage={this.countPositiveFeedbackPercentage()}
+              />
+            }
+          />
+        )}
       </>
     );
   }
