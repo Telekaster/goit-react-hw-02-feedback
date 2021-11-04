@@ -26,6 +26,18 @@ class Feedback extends Component {
     });
   };
 
+  countTotalFeedback() {
+    return (
+      this.state.good_value + this.state.neutral_value + this.state.bad_value
+    );
+  }
+
+  countPositiveFeedbackPercentage() {
+    return Math.round(
+      (this.state.good_value / this.countTotalFeedback()) * 100
+    );
+  }
+
   render() {
     return (
       <>
@@ -63,6 +75,10 @@ class Feedback extends Component {
             <li>{`Good: ${this.state.good_value}`}</li>
             <li>{`Neutral: ${this.state.neutral_value}`}</li>
             <li>{`Bad: ${this.state.bad_value}`}</li>
+            <li>{`Total: ${this.countTotalFeedback()}`}</li>
+            {!isNaN(this.countPositiveFeedbackPercentage()) && (
+              <li>{`Positive feedback:${this.countPositiveFeedbackPercentage()}%`}</li>
+            )}
           </ul>
         </div>
       </>
