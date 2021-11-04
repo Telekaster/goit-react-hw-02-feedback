@@ -5,7 +5,6 @@ function Feedback({ onClickGood, onClickNeutral, onClickBad }) {
   return (
     <>
       <div className="button__area">
-        <h2>Please leave feedback</h2>
         <ul className="button__list">
           <li>
             <button className="button__btn good" onClick={onClickGood}>

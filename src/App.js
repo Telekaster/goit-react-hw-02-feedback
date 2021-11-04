@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Section from "./components/Section/Section";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Statistics from "./components/Statistics/Statistics";
 
@@ -42,18 +43,28 @@ class App extends Component {
   render() {
     return (
       <>
-        <FeedbackOptions
-          onClickGood={this.handleClickGood}
-          onClickNeutral={this.handleClickNeutral}
-          onClickBad={this.handleClickBad}
+        <Section
+          title="Please leave feedback"
+          children={
+            <FeedbackOptions
+              onClickGood={this.handleClickGood}
+              onClickNeutral={this.handleClickNeutral}
+              onClickBad={this.handleClickBad}
+            />
+          }
         />
 
-        <Statistics
-          good_value={this.state.good_value}
-          neutral_value={this.state.neutral_value}
-          bad_value={this.state.bad_value}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
+        <Section
+          title="Statistics"
+          children={
+            <Statistics
+              good_value={this.state.good_value}
+              neutral_value={this.state.neutral_value}
+              bad_value={this.state.bad_value}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          }
         />
       </>
     );
