@@ -1,0 +1,11 @@
+.statistics__area {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+.statistics__list {
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+}
