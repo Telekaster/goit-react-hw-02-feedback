@@ -1,23 +1,35 @@
-import { Component } from "react";
+import React from "react";
 import styles from "./FeedbackOptions.css";
 
-function Feedback({ onClickGood, onClickNeutral, onClickBad }) {
+function Feedback({ onClickNeutral }) {
   return (
     <>
       <div className="button__area">
         <ul className="button__list">
           <li>
-            <button className="button__btn good" onClick={onClickGood}>
+            <button
+              className="button__btn good"
+              id="good_value"
+              onClick={onClickNeutral}
+            >
               Good
             </button>
           </li>
           <li>
-            <button className="button__btn neutral" onClick={onClickNeutral}>
+            <button
+              className="button__btn neutral"
+              id="neutral_value"
+              onClick={onClickNeutral}
+            >
               Neutral
             </button>
           </li>
           <li>
-            <button className="button__btn bad" onClick={onClickBad}>
+            <button
+              className="button__btn bad"
+              id="bad_value"
+              onClick={onClickNeutral}
+            >
               Bad
             </button>
           </li>

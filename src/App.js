@@ -11,21 +11,11 @@ class App extends Component {
     bad_value: 0,
   };
 
-  handleClickGood = () => {
-    this.setState((prevState) => {
-      return { good_value: prevState.good_value + 1 };
-    });
-  };
+  handleClickNeutral = (evt) => {
+    let key = evt.target.id;
 
-  handleClickNeutral = () => {
     this.setState((prevState) => {
-      return { neutral_value: prevState.neutral_value + 1 };
-    });
-  };
-
-  handleClickBad = () => {
-    this.setState((prevState) => {
-      return { bad_value: prevState.bad_value + 1 };
+      return { [key]: prevState[key] + 1 };
     });
   };
 
@@ -47,11 +37,7 @@ class App extends Component {
         <Section
           title="Please leave feedback"
           children={
-            <FeedbackOptions
-              onClickGood={this.handleClickGood}
-              onClickNeutral={this.handleClickNeutral}
-              onClickBad={this.handleClickBad}
-            />
+            <FeedbackOptions onClickNeutral={this.handleClickNeutral} />
           }
         />
 
