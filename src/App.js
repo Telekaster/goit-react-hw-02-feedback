@@ -12,7 +12,7 @@ class App extends Component {
   };
 
   handleClickNeutral = (evt) => {
-    let key = evt.target.id;
+    const key = evt.target.id;
 
     this.setState((prevState) => {
       return { [key]: prevState[key] + 1 };
